@@ -1,7 +1,7 @@
 import user from './user'
 import auth from './auth'
 import login from './login'
-import { apiNotFound } from '../middlewares/handle_errors'
+import { notFound } from '../middlewares/handle_errors'
 
 const initRoutes = (app) => {
 
@@ -9,7 +9,7 @@ const initRoutes = (app) => {
     app.use('/api/auth', auth)
     app.use('/api/login', login)
 
-    app.use(apiNotFound)
+    app.use(notFound)
 }
 
 module.exports = initRoutes

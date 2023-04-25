@@ -1,5 +1,7 @@
-const router = require('express').Router()
 import * as controllers from '../controllers'
+import express from 'express'
+
+const router = express.Router()
 
 router.post('/register', controllers.register)
 
