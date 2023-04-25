@@ -1,4 +1,5 @@
-GET http://localhost:8000/api/user
+GET http://localhost:8000/api/user/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJoaGQwMTA4Iiwicm9sZSI6IlIzIiwiaWF0IjoxNjgyNDY0NzYyLCJleHAiOjE2ODI2Mzc1NjJ9.nqzdR-MZDI3iG8xfKzokiCRBLC3Gfkv6OxdH6t4Z6Ik
 
 ###
 POST  http://localhost:8000/api/auth/register
@@ -14,6 +15,6 @@ POST http://localhost:8000/api/login/login
 Content-Type: application/json
 
 {
-    "username": "hhd",
+    "username": "hhd0108",
     "password": "123456"
 }
