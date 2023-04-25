@@ -5,17 +5,16 @@ const hashPW = password => bcrypt.hashSync(password, bcrypt.genSaltSync(5))
 
 export const register = ({ username, password }) => new Promise( async (resolve, reject) => {
     try {
-        const response = await db.User.finOrCreate({
+        const response = await db.User.findOrCreate({
             where: { username },
             defaults: {
                 username,
                 password: hashPW(password)
             }
         })
-        console.log(response[1]);
         resolve({
             err: response[1] ? 0 : 1,
-            mes: response[1] ? 'Creat is successfully' : 'Username is used'
+            mes: response[1] ? 'Create is successfully' : 'Username is used'
         })
         
         resolve({

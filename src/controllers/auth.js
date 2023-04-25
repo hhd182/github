@@ -7,7 +7,7 @@ export const register = async (req, res) => {
             err: 1,
             mes: 'Missing username or password'
         })
-        const response = await services.register({username, password})
+        const response = await services.register(req.body)
         return res.status(200).json(response)
     } catch (error) {
         return res.status(500).json({
