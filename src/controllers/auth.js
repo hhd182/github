@@ -1,4 +1,5 @@
 import * as services from "../services"
+import { internalServerErr } from "../middlewares/handle_errors"
 
 export const register = async (req, res) => {
     try {
@@ -10,9 +11,6 @@ export const register = async (req, res) => {
         const response = await services.register(req.body)
         return res.status(200).json(response)
     } catch (error) {
-        return res.status(500).json({
-            err: -1,
-            mes: 'Internal Server Error'
-        })
+        return internalServerErr(res)
     }
 }

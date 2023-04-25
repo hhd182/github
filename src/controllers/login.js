@@ -1,3 +1,4 @@
+import { internalServerErr } from "../middlewares/handle_errors"
 import * as services from "../services"
 
 export const login = async (req, res) => {
@@ -10,9 +11,6 @@ export const login = async (req, res) => {
         const response = await services.login(req.body)
         return res.status(200).json(response)
     } catch (error) {
-        return res.status(500).json({
-            err: -1,
-            mes: 'Internal Server Error'
-        })
+        return internalServerErr(res)
     }
 }

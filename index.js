@@ -1,8 +1,8 @@
-const express = require('express')
-const cors = require('cors')
+import express, { json, urlencoded } from 'express'
+import cors from 'cors'
 require('dotenv').config()
-const initRoutes = require('./src/routes')
-require('./connection')
+import initRoutes from './src/routes'
+import './connection'
 
 const app = express()
 app.use(cors({
@@ -10,8 +10,8 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 }))
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(json())
+app.use(urlencoded({ extended: true }))
 
 initRoutes(app)
 

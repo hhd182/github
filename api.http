@@ -1,19 +1,19 @@
 GET http://localhost:8000/api/user
 
 ###
-GET http://localhost:8000/api/auth/register
+POST  http://localhost:8000/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "admin",
+    "username": "hhd0108",
     "password": "123456"
 }
 
 ###
-GET http://localhost:8000/api/login/login
+POST http://localhost:8000/api/login/login
 Content-Type: application/json
 
 {
-    "username": "admin",
+    "username": "hhd",
     "password": "123456"
 }

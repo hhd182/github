@@ -1,4 +1,6 @@
 import db from '../models'
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
 
 export const login = ({ username, password }) => new Promise( async (resolve, reject) => {
     try {
@@ -6,16 +8,12 @@ export const login = ({ username, password }) => new Promise( async (resolve, re
             where: { username },
             raw: true
         })
-        console.log(response)
+        const checkPassword = response && bcrypt.compareSync(password, response.password)
+        const token = checkPassword ? jwt.sign({id: response.id, username: response.username, role: response.role}, process.env.JWT_SECRET, {expiresIn: '2d'}) : null
         resolve({
-            err: response ? 0 : 1,
-            mes: response ? 'Login is successfully' : 'Error login',
-            response
-        })
-        
-        resolve({
-            err: 0,
-            mes: 'login service'
+            err: token ? 0 : 1,
+            mes: token ? 'Login is successfully' : response ? 'Password is wrong': 'Username has been created',
+            token
         })
     } catch (error) {
         reject(error)

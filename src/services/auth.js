@@ -19,12 +19,8 @@ export const register = ({ username, password }) => new Promise( async (resolve,
             mes: response[1] ? 'Create is successfully' : 'Username is used',
             token
         })
-        
-        resolve({
-            err: 0,
-            mes: 'register service'
-        })
     } catch (error) {
         reject(error)
     }
 })
+

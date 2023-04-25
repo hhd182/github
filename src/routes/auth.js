@@ -1,6 +1,6 @@
 const router = require('express').Router()
 import * as controllers from '../controllers'
 
-router.get('/register', controllers.register)
+router.post('/register', controllers.register)
 
 module.exports = router
