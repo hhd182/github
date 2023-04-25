@@ -1,0 +1,8 @@
+INSERT INTO Roles (code, value) VALUE ('R1', 'Admin');
+INSERT INTO Roles (code, value) VALUE ('R2', 'Dev');
+INSERT INTO Roles (code, value) VALUE ('R3', 'USer');
+
+INSERT INTO USers (username, password, role, avatar_picture) VALUE ('admin', '123456789','R1', "null");
+INSERT INTO USers (username, password, role, avatar_picture) VALUE ('admin', '123456789','R1', "null");
+INSERT INTO USers (username, password, role, avatar_picture) VALUE ('admin', '123456789','R1', "null");
+
